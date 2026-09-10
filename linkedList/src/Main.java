@@ -1,5 +1,5 @@
 
- public class Main {
+public class Main {
 
 
     public static boolean checkGoingUp(Node<Integer> head) {
@@ -17,6 +17,8 @@
                 if (firstDiff < 1) {
                     return false;
                 }
+                prev = curr;
+                curr= curr.getNext();
             } else if (currDiff == firstDiff) {
                 prev = curr;
                 curr = curr.getNext();
@@ -24,16 +26,65 @@
                 return false;
             }
         }
-cs
+
         return true;
     }
 
-     static void main(String[] args) {
-         Node<Integer> n4 = new Node<>(12);
-         Node<Integer> n3 = new Node<>(9, n4);
-         Node<Integer> n2 = new Node<>(6, n3);
-         Node<Integer> n1 = new Node<>(3, n2);
-         System.out.println(checkGoingUp(n1));
+    public static void addNodeEnd(int value, Node<Integer> head)
+    {
+        Node<Integer> curr = head;
+        while(curr.getNext() != null)
+        {
+            curr = curr.getNext();
+        }
+        Node<Integer> newNode = new Node<>(value);
+        curr.setNext(newNode);
+    }
+
+    public static Node<Integer> addNodeStart(int value, Node<Integer> head)
+    {
+
+        Node<Integer> newNode = new Node<>(value, head);
+        return newNode;
+    }
+
+    public static Node<Integer> deleteHeadNode(Node<Integer> head)
+    {
+        Node<Integer> curr = head.getNext();
+        head.setNext(null);
+        return curr;
+    }
+
+    public static void deleteLastNode(Node<Integer> head)
+    {
+        Node<Integer> curr = head;
+        while(curr.getNext() != null)
+        {
+            curr = curr.getNext();
+        }
+        curr.setNext(null);
+    }
+
+    public static int getNumFromList(Node<Integer> head)
+    {
+        Node<Integer> curr = head;
+        int num = 0;
+        while(curr != null)
+        {
+            num += curr.getValue();
+            num *= 10;
+            curr = curr.getNext();
+        }
+
+        return num/10;
+    }
+
+    public static void main(String[] args) {
+        Node<Integer> n4 = new Node<>(13);
+        Node<Integer> n3 = new Node<>(10, n4);
+        Node<Integer> n2 = new Node<>(7, n3);
+        Node<Integer> n1 = new Node<>(4, n2);
+
 
     }
 }
