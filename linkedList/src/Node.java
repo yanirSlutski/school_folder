@@ -8,6 +8,11 @@ public class Node<T> {
         this.next = null;
     }
 
+    public Node(T data, Node<T> next) {
+        this.value = data;
+        this.next = next;
+    }
+
     // Getters and Setters
     public T getValue() { return value; }
     public void setValue(T value) { this.value = value; }
