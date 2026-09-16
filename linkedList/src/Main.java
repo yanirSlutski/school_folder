@@ -81,9 +81,10 @@ public class Main {
 
     public static void main(String[] args) {
         Node<Integer> n4 = new Node<>(13);
-        Node<Integer> n3 = new Node<>(10, n4);
+        Node<Integer> n3 = new Node<>(19, n4);
         Node<Integer> n2 = new Node<>(7, n3);
         Node<Integer> n1 = new Node<>(4, n2);
+        System.out.println(checkGoingUp(n1));
 
 
     }
