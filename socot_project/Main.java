@@ -69,9 +69,46 @@ public class Main
         return smallestCommonDivisor;
     }
     
+    public static boolean isLetter(char c)
+    {
+        return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
+    }
 
+    public static boolean serialArr(int[] arr)
+    {
+        int seriesLen = 0;
+        boolean finsihed = false;
+        for(int i = 0; i<arr.length && !finsihed; i++)
+        {
+            for(int j = 0; j<i && !finsihed; i++)
+            {
+                if(arr[i] == arr[j])
+                {
+                    seriesLen = i;
+                    finsihed = true;
+                }
+            }
+        }
+
+        int[] series = new int[seriesLen];
+        for(int i = 0; i<seriesLen; i++)
+        {
+            System.out.println(arr[i]);
+            series[i] = arr[i];
+        }
+
+        for(int i = 0; i<arr.length; i++)
+        {
+            if(arr[i] != series[i%seriesLen])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args)
     {
-
+        int[] series = {4,2,1,4,2,4,2,1};
+        System.out.println(serialArr(series));
     }
 }
