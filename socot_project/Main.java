@@ -106,9 +106,47 @@ public class Main
         }
         return true;
     }
+   
+    public static int amount(Committee[] arr, Member m)
+    {
+        int acceptableCommitteesAmount = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            boolean isCoalGrater = false;
+            boolean isCountEnough = false;
+            if(arr[i].getCount()<16)
+            {
+                isCountEnough = true;
+            }
+            else
+            {
+                continue;
+            }
+            
+            int coalMembers = arr[i].total(true);
+            int oppMembers = arr[i].total(false);
+            if(m.isCoal())
+            {
+                coalMembers++;
+            }
+            else
+            {
+                oppMembers++;
+            }
+            if(coalMembers > oppMembers)
+            {
+                isCoalGrater = true;
+            }
+            if(isCoalGrater && isCountEnough)
+            {
+                acceptableCommitteesAmount++;
+            }
+        }
+        return acceptableCommitteesAmount;
+    }
+   
     public static void main(String[] args)
     {
-        int[] series = {4,2,1,4,2,4,2,1};
-        System.out.println(serialArr(series));
+        
     }
 }
