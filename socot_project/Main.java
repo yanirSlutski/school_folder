@@ -107,6 +107,32 @@ public class Main
         return true;
     }
    
+    public static boolean isFromABC(char c)
+    {
+        return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+    }
+    public static int shortestABCseries(char[][] arr)
+    {
+        int shortestSeries = 0;
+        for(int i = 0; i<arr.length; i++)
+        {
+            int seriesLength = 0;
+            for(int j = 0; i<arr[i].length && isFromABC(arr[i][j]); i++)
+            {
+                seriesLength++;
+
+            }
+            System.out.println(seriesLength);
+            if( seriesLength < shortestSeries)
+            {
+                shortestSeries = seriesLength;
+            }
+
+        }
+
+        return shortestSeries;
+    }
+
     public static int amount(Committee[] arr, Member m)
     {
         int acceptableCommitteesAmount = 0;
@@ -147,6 +173,6 @@ public class Main
    
     public static void main(String[] args)
     {
-        
+
     }
 }
