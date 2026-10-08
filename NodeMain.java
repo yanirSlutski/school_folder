@@ -6,9 +6,10 @@ public class NodeMain
     {
         IntNode curr = head;
         while (curr != null) {
-            System.out.println( curr.getValue() );
+            System.out.print( curr.getValue() + ": " + curr + " -> " );
             curr = curr.getNext();
         }
+        System.out.println();
     }
     
     public static boolean isIncreasingOrder(IntNode head)
@@ -68,6 +69,45 @@ public class NodeMain
         return true;
     }
     
+    public static IntNode getWhereCombine(IntNode list1, IntNode list2)
+    {
+    	IntNode curr1 = list1;
+    	
+    	while(curr1 != null)
+    	{
+    		IntNode prev = list2;
+    		IntNode curr2 = prev.getNext();
+    		
+    		while(curr2 != null)
+    		{
+    			if(curr1 == curr2)
+    			{
+    				return prev;
+    			}
+    			prev = curr2;
+    			curr2 = curr2.getNext();
+    		}
+    		curr1 = curr1.getNext();
+    	}
+    	return null;
+    }
+
+    public static void disconnectLists(IntNode list1, IntNode list2)
+    {
+    	IntNode list2before = getWhereCombine(list1, list2);
+    	IntNode restOfList = list2before.getNext();
+    	list2before.setNext(null);
+    	while(restOfList != null)
+    	{
+    		list2before.setNext(new IntNode(restOfList.getValue()));
+    		restOfList = restOfList.getNext();
+    		list2before = list2before.getNext();
+    	}
+    	
+    	
+    	
+    }
+    
     public static void main(String[] args)
     {
         IntNode n6 = new IntNode(1);
@@ -76,8 +116,17 @@ public class NodeMain
         IntNode n3 = new IntNode(14, n4);
         IntNode n2 = new IntNode(28, n3);
         IntNode n1 = new IntNode(56, n2);
+        
+        IntNode p2 = new IntNode(-28, n3);
+        IntNode p1 = new IntNode(-56, p2);
 
-        System.out.println(isSumSeries(n1));
+        printLinkedList(n1);
+        printLinkedList(p1);
+        System.out.println("-----------");
+        disconnectLists(p1, n1);
+        System.out.println("-----------");
+        printLinkedList(n1);
+        printLinkedList(p1);
         
     }
 }

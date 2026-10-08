@@ -111,6 +111,7 @@ public class Main
     {
         return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
     }
+    
     public static int shortestABCseries(char[][] arr)
     {
         int shortestSeries = 0;
@@ -171,8 +172,27 @@ public class Main
         return acceptableCommitteesAmount;
     }
    
+    public static boolean equalEdgeSum(int[] arr)
+    {
+    	int sum = 0;
+    	sum = arr[0] + arr[arr.length - 1];
+    	for(int i = 0; i<arr.length/2; i++)
+    	{
+
+    		int currSum = arr[i] + arr[arr.length - i - 1];
+    		System.out.println(currSum + "=" + sum);
+    		if (currSum != sum)
+    		{
+    			
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
     public static void main(String[] args)
     {
-
+    	int[] arr = {3,5,-4,12,-6,10,1,3};
+    	System.out.println(equalEdgeSum(arr));
     }
 }

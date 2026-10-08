@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="socot_project/" kind="src" path=""/>
+	<classpathentry kind="src" path="socot_project"/>
+	<classpathentry kind="output" path="linkedList"/>
+</classpath>
