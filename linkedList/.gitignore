@@ -1,10 +1,11 @@
 /.classpath
 /.project
 /Committee.class
+/Election.class
 /IntNode.class
 /Main.class
 /Member.class
 /NodeMain.class
 /SocialNetwork.class
 /User.class
-/Election.class
+/genrlised_lists/
