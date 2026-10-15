@@ -6,7 +6,7 @@ public class main {
     {
 		Node<T> curr = head;
         while (curr != null) {
-            System.out.print("->" + curr.getValue());
+            System.out.print("->" + curr.getValue().toString());
             curr = curr.getNext();
         }
         System.out.println();
@@ -67,31 +67,21 @@ public class main {
 		}
 	}
 
+	public static double sumExpressions(Node<Expression> head)
+	{
+		double sum = 0;
+		Node<Expression> curr = head;
+		while(curr != null)
+		{
+			sum += curr.getValue().calculate();
+			curr = curr.getNext();
+		}
+		return sum;
+	}
+	
 	public static void main(String[] args) {
-		Node<Integer> n8 = new Node<Integer>(9);
-		Node<Integer> n7 = new Node<Integer>(8, n8);
-		Node<Integer> n6 = new Node<Integer>(7, n7);
-		Node<Integer> n5 = new Node<Integer>(6, n6);
-		Node<Integer> n4 = new Node<Integer>(5, n5);
-		Node<Integer> n3 = new Node<Integer>(4, n4);
-		Node<Integer> n2 = new Node<Integer>(3, n3);
-		Node<Integer> n1 = new Node<Integer>(2, n2);
 		
-		Node<Integer> p8 = new Node<Integer>(16);
-		Node<Integer> p7 = new Node<Integer>(14, p8);
-		Node<Integer> p6 = new Node<Integer>(12, p7);
-		Node<Integer> p5 = new Node<Integer>(10, p6);
-		Node<Integer> p4 = new Node<Integer>(8, p5);
-		Node<Integer> p3 = new Node<Integer>(6, p4);
-		Node<Integer> p2 = new Node<Integer>(4, p3);
-		Node<Integer> p1 = new Node<Integer>(2, p2);
-		
-		printLinkedList(n1);
-		printLinkedList(p1);
-		System.out.println("");
-		subtractLists(n1, p1);
-		printLinkedList(n1);
-
+	
 	}
 
 }
